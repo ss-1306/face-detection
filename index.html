@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>Face Detection</title>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="index.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #e8eaec;
+        }
+
+        #removeImage {
+            display: none;
+        }
+        
+        .box-layout {
+            border: 1px dotted black;
+            padding: 10px;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-layout">
+        <input type="file" id="uploadImage">
+        <button id="removeImage">Remove Image </button>
+    </div>
+</body>
+
+</html>
