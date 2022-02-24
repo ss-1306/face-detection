@@ -42,7 +42,7 @@ async function startFaceDetection() {
 }
 
 function loadPreDefinedImages() {
-    const labels = ['Modi', 'Yogi', 'Amit Shah'];
+    const labels = ['Modi', 'Yogi'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
