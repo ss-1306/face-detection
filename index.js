@@ -42,7 +42,7 @@ async function startFaceDetection() {
 }
 
 function loadPreDefinedImages() {
-    const labels = ['Black Widow', 'Captain America', 'Captain Marvel', 'Hawkeye', 'Jim Rhodes', 'Modi', 'Thor', 'Tony Stark', 'Yogi'];
+    const labels = ['Modi', 'Yogi', 'Amit Shah'];
     return Promise.all(
         labels.map(async label => {
             const descriptions = []
