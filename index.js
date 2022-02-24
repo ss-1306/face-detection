@@ -1,6 +1,6 @@
 const uploadImage = document.getElementById('uploadImage');
-const removeImage = document.getElementById('removeImage');
-
+var img
+var canvas
 Promise.all([
     // algoritm for recognisation 
     faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
@@ -17,12 +17,14 @@ async function startFaceDetection() {
     const labeledFaceDescriptors = await loadPreDefinedImages();
     const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.5);
     uploadImage.addEventListener('change', async () => {
-        const img = await faceapi.bufferToImage(uploadImage.files[0]);
+        if (img) img.remove()
+        if (canvas) canvas.remove()
+        img = await faceapi.bufferToImage(uploadImage.files[0]);
         document.body.append(facesDetected);
         facesDetected.append('Faces Detected: ');
         document.body.append(rectangularContainer);
         rectangularContainer.append(img);
-        const canvas = faceapi.createCanvasFromMedia(img);
+        canvas = faceapi.createCanvasFromMedia(img);
         rectangularContainer.append(canvas);
         const displaySize = {
             width: img.width,
@@ -55,4 +57,9 @@ function loadPreDefinedImages() {
             return new faceapi.LabeledFaceDescriptors(label, descriptions)
         })
     )
+}
+
+function removeImage () {
+    if (img) img.remove()
+    if (canvas) canvas.remove()
 }
